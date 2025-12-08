@@ -1,0 +1,1565 @@
+<?xml version="1.0"?>
+<Ontology xmlns="http://www.w3.org/2002/07/owl#"
+     xml:base="http://www.semanticweb.org/anisharyal/ontologies/2025/11/python_loops"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     ontologyIRI="http://www.semanticweb.org/anisharyal/ontologies/2025/11/python_loops">
+    <Prefix name="" IRI="http://www.semanticweb.org/anisharyal/ontologies/2025/11/python_loops/"/>
+    <Prefix name="owl" IRI="http://www.w3.org/2002/07/owl#"/>
+    <Prefix name="rdf" IRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+    <Prefix name="xml" IRI="http://www.w3.org/XML/1998/namespace"/>
+    <Prefix name="xsd" IRI="http://www.w3.org/2001/XMLSchema#"/>
+    <Prefix name="rdfs" IRI="http://www.w3.org/2000/01/rdf-schema#"/>
+    <Declaration>
+        <Class IRI="#CommonMistake"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Dictionary"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Enumerate"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#ForLoop"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Items"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Iterable"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#IterationConcept"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#IterationMethod"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Keys"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#List"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Problem"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Solution"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#String"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#TestCase"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Values"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasIterable"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasMethod"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasMistake"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasTestCase"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#requiresConcept"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#solvesProblem"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#useTestCase"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#codeExample"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#difficultyLevel"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#errorMessage"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#expectedOutput"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#explanation"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#hint"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#problemDescription"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#solutionCode"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#syntaxPattern"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#testDescription"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#testInput"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#testOutput"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#BasicListIteration"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#DictItemsIteration"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#DictKeysIteration"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Dictionary"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#DisctValueIteration"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Enumerate"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#EnumerateListIteration"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#ForLoop"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Items"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Keys"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#List"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Mistake1"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Mistake2"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Mistake3"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Problem1"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Problem2"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Problem3"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Problem4"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Problem5"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Problem6"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Solution1"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Solution2"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Solution3"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Solution4"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Solution5"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Solution6"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#String"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#StringIteration"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#TestCase1A"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#TestCase1B"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#TestCase1C"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#TestCase2A"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#TestCase2B"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#TestCase3A"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#TestCase3B"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#TestCase4A"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#TestCase4B"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#TestCase5A"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#TestCase5B"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#TestCase6A"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#TestCase6B"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#TestCase6C"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Values"/>
+    </Declaration>
+    <SubClassOf>
+        <Class IRI="#Dictionary"/>
+        <Class IRI="#Iterable"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Enumerate"/>
+        <Class IRI="#IterationMethod"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#ForLoop"/>
+        <Class IRI="#IterationMethod"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Items"/>
+        <Class IRI="#IterationMethod"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Keys"/>
+        <Class IRI="#IterationMethod"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#List"/>
+        <Class IRI="#Iterable"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#String"/>
+        <Class IRI="#Iterable"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Values"/>
+        <Class IRI="#IterationMethod"/>
+    </SubClassOf>
+    <ClassAssertion>
+        <Class IRI="#IterationConcept"/>
+        <NamedIndividual IRI="#BasicListIteration"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#IterationConcept"/>
+        <NamedIndividual IRI="#DictItemsIteration"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#IterationConcept"/>
+        <NamedIndividual IRI="#DictKeysIteration"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Dictionary"/>
+        <NamedIndividual IRI="#Dictionary"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#IterationConcept"/>
+        <NamedIndividual IRI="#DisctValueIteration"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Enumerate"/>
+        <NamedIndividual IRI="#Enumerate"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#IterationConcept"/>
+        <NamedIndividual IRI="#EnumerateListIteration"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#ForLoop"/>
+        <NamedIndividual IRI="#ForLoop"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Items"/>
+        <NamedIndividual IRI="#Items"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Keys"/>
+        <NamedIndividual IRI="#Keys"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#List"/>
+        <NamedIndividual IRI="#List"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#CommonMistake"/>
+        <NamedIndividual IRI="#Mistake1"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#CommonMistake"/>
+        <NamedIndividual IRI="#Mistake2"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#CommonMistake"/>
+        <NamedIndividual IRI="#Mistake3"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Problem"/>
+        <NamedIndividual IRI="#Problem1"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Problem"/>
+        <NamedIndividual IRI="#Problem2"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Problem"/>
+        <NamedIndividual IRI="#Problem3"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Problem"/>
+        <NamedIndividual IRI="#Problem4"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Problem"/>
+        <NamedIndividual IRI="#Problem5"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Problem"/>
+        <NamedIndividual IRI="#Problem6"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Solution"/>
+        <NamedIndividual IRI="#Solution1"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Solution"/>
+        <NamedIndividual IRI="#Solution2"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Solution"/>
+        <NamedIndividual IRI="#Solution3"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Solution"/>
+        <NamedIndividual IRI="#Solution4"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Solution"/>
+        <NamedIndividual IRI="#Solution5"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Solution"/>
+        <NamedIndividual IRI="#Solution6"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#String"/>
+        <NamedIndividual IRI="#String"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#IterationConcept"/>
+        <NamedIndividual IRI="#StringIteration"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#TestCase"/>
+        <NamedIndividual IRI="#TestCase1A"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#TestCase"/>
+        <NamedIndividual IRI="#TestCase1B"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#TestCase"/>
+        <NamedIndividual IRI="#TestCase1C"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#TestCase"/>
+        <NamedIndividual IRI="#TestCase2A"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#TestCase"/>
+        <NamedIndividual IRI="#TestCase2B"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#TestCase"/>
+        <NamedIndividual IRI="#TestCase3A"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#TestCase"/>
+        <NamedIndividual IRI="#TestCase3B"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#TestCase"/>
+        <NamedIndividual IRI="#TestCase4A"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#TestCase"/>
+        <NamedIndividual IRI="#TestCase4B"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#TestCase"/>
+        <NamedIndividual IRI="#TestCase5A"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#TestCase"/>
+        <NamedIndividual IRI="#TestCase5B"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#TestCase"/>
+        <NamedIndividual IRI="#TestCase6A"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#TestCase"/>
+        <NamedIndividual IRI="#TestCase6B"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#TestCase"/>
+        <NamedIndividual IRI="#TestCase6C"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Values"/>
+        <NamedIndividual IRI="#Values"/>
+    </ClassAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasIterable"/>
+        <NamedIndividual IRI="#BasicListIteration"/>
+        <NamedIndividual IRI="#List"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasMethod"/>
+        <NamedIndividual IRI="#BasicListIteration"/>
+        <NamedIndividual IRI="#ForLoop"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasIterable"/>
+        <NamedIndividual IRI="#DictItemsIteration"/>
+        <NamedIndividual IRI="#Dictionary"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasMethod"/>
+        <NamedIndividual IRI="#DictItemsIteration"/>
+        <NamedIndividual IRI="#Items"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasIterable"/>
+        <NamedIndividual IRI="#DictKeysIteration"/>
+        <NamedIndividual IRI="#Dictionary"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasMethod"/>
+        <NamedIndividual IRI="#DictKeysIteration"/>
+        <NamedIndividual IRI="#Keys"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasIterable"/>
+        <NamedIndividual IRI="#DisctValueIteration"/>
+        <NamedIndividual IRI="#Dictionary"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasMethod"/>
+        <NamedIndividual IRI="#DisctValueIteration"/>
+        <NamedIndividual IRI="#Values"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasIterable"/>
+        <NamedIndividual IRI="#EnumerateListIteration"/>
+        <NamedIndividual IRI="#List"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasMethod"/>
+        <NamedIndividual IRI="#EnumerateListIteration"/>
+        <NamedIndividual IRI="#Enumerate"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasTestCase"/>
+        <NamedIndividual IRI="#Problem1"/>
+        <NamedIndividual IRI="#TestCase1A"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasTestCase"/>
+        <NamedIndividual IRI="#Problem1"/>
+        <NamedIndividual IRI="#TestCase1B"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasTestCase"/>
+        <NamedIndividual IRI="#Problem1"/>
+        <NamedIndividual IRI="#TestCase1C"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#requiresConcept"/>
+        <NamedIndividual IRI="#Problem1"/>
+        <NamedIndividual IRI="#BasicListIteration"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasTestCase"/>
+        <NamedIndividual IRI="#Problem2"/>
+        <NamedIndividual IRI="#TestCase2A"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasTestCase"/>
+        <NamedIndividual IRI="#Problem2"/>
+        <NamedIndividual IRI="#TestCase2B"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#requiresConcept"/>
+        <NamedIndividual IRI="#Problem2"/>
+        <NamedIndividual IRI="#StringIteration"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasTestCase"/>
+        <NamedIndividual IRI="#Problem3"/>
+        <NamedIndividual IRI="#TestCase3A"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasTestCase"/>
+        <NamedIndividual IRI="#Problem3"/>
+        <NamedIndividual IRI="#TestCase3B"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#requiresConcept"/>
+        <NamedIndividual IRI="#Problem3"/>
+        <NamedIndividual IRI="#EnumerateListIteration"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasTestCase"/>
+        <NamedIndividual IRI="#Problem4"/>
+        <NamedIndividual IRI="#TestCase4A"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasTestCase"/>
+        <NamedIndividual IRI="#Problem4"/>
+        <NamedIndividual IRI="#TestCase4B"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#requiresConcept"/>
+        <NamedIndividual IRI="#Problem4"/>
+        <NamedIndividual IRI="#DictItemsIteration"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasTestCase"/>
+        <NamedIndividual IRI="#Problem5"/>
+        <NamedIndividual IRI="#TestCase5A"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasTestCase"/>
+        <NamedIndividual IRI="#Problem5"/>
+        <NamedIndividual IRI="#TestCase5B"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#requiresConcept"/>
+        <NamedIndividual IRI="#Problem5"/>
+        <NamedIndividual IRI="#DictKeysIteration"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasTestCase"/>
+        <NamedIndividual IRI="#Problem6"/>
+        <NamedIndividual IRI="#TestCase6A"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasTestCase"/>
+        <NamedIndividual IRI="#Problem6"/>
+        <NamedIndividual IRI="#TestCase6B"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasTestCase"/>
+        <NamedIndividual IRI="#Problem6"/>
+        <NamedIndividual IRI="#TestCase6C"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#requiresConcept"/>
+        <NamedIndividual IRI="#Problem6"/>
+        <NamedIndividual IRI="#DisctValueIteration"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#solvesProblem"/>
+        <NamedIndividual IRI="#Solution1"/>
+        <NamedIndividual IRI="#Problem1"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#useTestCase"/>
+        <NamedIndividual IRI="#Solution1"/>
+        <NamedIndividual IRI="#TestCase1A"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#useTestCase"/>
+        <NamedIndividual IRI="#Solution1"/>
+        <NamedIndividual IRI="#TestCase1B"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#useTestCase"/>
+        <NamedIndividual IRI="#Solution1"/>
+        <NamedIndividual IRI="#TestCase1C"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#solvesProblem"/>
+        <NamedIndividual IRI="#Solution2"/>
+        <NamedIndividual IRI="#Problem2"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#useTestCase"/>
+        <NamedIndividual IRI="#Solution2"/>
+        <NamedIndividual IRI="#TestCase2A"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#useTestCase"/>
+        <NamedIndividual IRI="#Solution2"/>
+        <NamedIndividual IRI="#TestCase2B"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#solvesProblem"/>
+        <NamedIndividual IRI="#Solution3"/>
+        <NamedIndividual IRI="#Problem3"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#useTestCase"/>
+        <NamedIndividual IRI="#Solution3"/>
+        <NamedIndividual IRI="#TestCase3A"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#useTestCase"/>
+        <NamedIndividual IRI="#Solution3"/>
+        <NamedIndividual IRI="#TestCase3B"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#solvesProblem"/>
+        <NamedIndividual IRI="#Solution4"/>
+        <NamedIndividual IRI="#Problem4"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#useTestCase"/>
+        <NamedIndividual IRI="#Solution4"/>
+        <NamedIndividual IRI="#TestCase4A"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#useTestCase"/>
+        <NamedIndividual IRI="#Solution4"/>
+        <NamedIndividual IRI="#TestCase4B"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#solvesProblem"/>
+        <NamedIndividual IRI="#Solution5"/>
+        <NamedIndividual IRI="#Problem5"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#useTestCase"/>
+        <NamedIndividual IRI="#Solution5"/>
+        <NamedIndividual IRI="#TestCase5A"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#useTestCase"/>
+        <NamedIndividual IRI="#Solution5"/>
+        <NamedIndividual IRI="#TestCase5B"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#solvesProblem"/>
+        <NamedIndividual IRI="#Solution6"/>
+        <NamedIndividual IRI="#Problem6"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#useTestCase"/>
+        <NamedIndividual IRI="#Solution6"/>
+        <NamedIndividual IRI="#TestCase6A"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#useTestCase"/>
+        <NamedIndividual IRI="#Solution6"/>
+        <NamedIndividual IRI="#TestCase6B"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#useTestCase"/>
+        <NamedIndividual IRI="#Solution6"/>
+        <NamedIndividual IRI="#TestCase6C"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasIterable"/>
+        <NamedIndividual IRI="#StringIteration"/>
+        <NamedIndividual IRI="#String"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasMethod"/>
+        <NamedIndividual IRI="#StringIteration"/>
+        <NamedIndividual IRI="#ForLoop"/>
+    </ObjectPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#codeExample"/>
+        <NamedIndividual IRI="#BasicListIteration"/>
+        <Literal>fruits = [&apos;apple&apos;, &apos;banana&apos;, &apos;cherry&apos;]
+for fruit in fruits:
+    print(fruit)</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#explanation"/>
+        <NamedIndividual IRI="#BasicListIteration"/>
+        <Literal>Iterating through a list using a for loop allows you to access each element sequentially.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#syntaxPattern"/>
+        <NamedIndividual IRI="#BasicListIteration"/>
+        <Literal>for item in list:</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#codeExample"/>
+        <NamedIndividual IRI="#DictItemsIteration"/>
+        <Literal>student = {&apos;name&apos;: &apos;Alice&apos;, &apos;age&apos;: 20, &apos;grade&apos;: &apos;A&apos;}
+for key, value in student.items():
+    print(f&quot;{key}: {value}&quot;)</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#explanation"/>
+        <NamedIndividual IRI="#DictItemsIteration"/>
+        <Literal>The items() method returns key-value pairs from a dictionary.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#syntaxPattern"/>
+        <NamedIndividual IRI="#DictItemsIteration"/>
+        <Literal>for key, value in dict.items():</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#codeExample"/>
+        <NamedIndividual IRI="#DictKeysIteration"/>
+        <Literal>scores = {&apos;math&apos;: 90, &apos;english&apos;: 85}
+for subject in scores.keys():
+    print(subject)</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#explanation"/>
+        <NamedIndividual IRI="#DictKeysIteration"/>
+        <Literal>The keys() method returns only the keys from a dictionary.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#syntaxPattern"/>
+        <NamedIndividual IRI="#DictKeysIteration"/>
+        <Literal>for key in dict.keys():</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#explanation"/>
+        <NamedIndividual IRI="#Dictionary"/>
+        <Literal>Dictionary are Unordered collection of key-value pair surrunded by { }</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#codeExample"/>
+        <NamedIndividual IRI="#DisctValueIteration"/>
+        <Literal>prices = {&apos;apple&apos;: 2.50, &apos;banana&apos;: 1.20, &apos;orange&apos;: 3.00}
+for price in prices.values():
+    print(f&quot;${price}&quot;)</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#explanation"/>
+        <NamedIndividual IRI="#DisctValueIteration"/>
+        <Literal>The values() method returns only the values from a dictionary.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#syntaxPattern"/>
+        <NamedIndividual IRI="#DisctValueIteration"/>
+        <Literal>for value in dict.values():</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#explanation"/>
+        <NamedIndividual IRI="#Enumerate"/>
+        <Literal>Built-in function that adds a counter to an iterable</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#codeExample"/>
+        <NamedIndividual IRI="#EnumerateListIteration"/>
+        <Literal>colors = [&apos;red&apos;, &apos;green&apos;, &apos;blue&apos;]
+for i, color in enumerate(colors):
+    print(f&quot;Index {i}: {color}&quot;)</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#explanation"/>
+        <NamedIndividual IRI="#EnumerateListIteration"/>
+        <Literal>enumerate() returns both the index and value of each element in the list.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#syntaxPattern"/>
+        <NamedIndividual IRI="#EnumerateListIteration"/>
+        <Literal>for index, item in enumerate(list):</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#explanation"/>
+        <NamedIndividual IRI="#ForLoop"/>
+        <Literal>The basic for loop syntax for iterating over sequences</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#explanation"/>
+        <NamedIndividual IRI="#Items"/>
+        <Literal>Dictionary method that returns key-value pairs</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#explanation"/>
+        <NamedIndividual IRI="#Keys"/>
+        <Literal>Dictionary method that returns only keys</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#explanation"/>
+        <NamedIndividual IRI="#List"/>
+        <Literal>List are an ordered, mutable collection of items surrounded by brackets [ ]</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#errorMessage"/>
+        <NamedIndividual IRI="#Mistake1"/>
+        <Literal>Forgetting the colon (:) at the end of the for statement. Python requires a colon to start a code block. Correct syntax: for item in list:</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#errorMessage"/>
+        <NamedIndividual IRI="#Mistake2"/>
+        <Literal>Incorrect indentation in the loop body. Python uses indentation to define code blocks. Loop body must be indented consistently (usually 4 spaces).</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#errorMessage"/>
+        <NamedIndividual IRI="#Mistake3"/>
+        <Literal>Using list index syntax when not needed. When iterating directly with &apos;for item in list&apos;, you don&apos;t need list[i]. The item variable already contains the value.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#difficultyLevel"/>
+        <NamedIndividual IRI="#Problem1"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">1</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hint"/>
+        <NamedIndividual IRI="#Problem1"/>
+        <Literal>&quot;Use a for loop to iterate through the list&quot;</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#problemDescription"/>
+        <NamedIndividual IRI="#Problem1"/>
+        <Literal>&quot;Print each number in the list: numbers = [1, 2, 3, 4, 5]&quot;</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#difficultyLevel"/>
+        <NamedIndividual IRI="#Problem2"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">1</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hint"/>
+        <NamedIndividual IRI="#Problem2"/>
+        <Literal>Strings can be iterated just like lists</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#problemDescription"/>
+        <NamedIndividual IRI="#Problem2"/>
+        <Literal>Print each character in the string: word = &quot;HELLO&quot;</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#difficultyLevel"/>
+        <NamedIndividual IRI="#Problem3"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">2</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hint"/>
+        <NamedIndividual IRI="#Problem3"/>
+        <Literal>Use enumerate() to get both index and value</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#problemDescription"/>
+        <NamedIndividual IRI="#Problem3"/>
+        <Literal>Print both the index and value for: fruits = [&apos;apple&apos;, &apos;banana&apos;, &apos;cherry&apos;]</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#difficultyLevel"/>
+        <NamedIndividual IRI="#Problem4"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">2</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#problemDescription"/>
+        <NamedIndividual IRI="#Problem4"/>
+        <Literal>Print each key-value pair from: person = {&apos;name&apos;: &apos;John&apos;, &apos;age&apos;: 25, &apos;city&apos;: &apos;London&apos;}</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#problemDescription"/>
+        <NamedIndividual IRI="#Problem4"/>
+        <Literal>Use the .items() method on the dictionary</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#difficultyLevel"/>
+        <NamedIndividual IRI="#Problem5"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">2</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hint"/>
+        <NamedIndividual IRI="#Problem5"/>
+        <Literal>Use the .keys() method to access only dictionary keys</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#problemDescription"/>
+        <NamedIndividual IRI="#Problem5"/>
+        <Literal>Print only the subject names from: grades = {&apos;math&apos;: 90, &apos;science&apos;: 85, &apos;english&apos;: 92}</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#difficultyLevel"/>
+        <NamedIndividual IRI="#Problem6"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">2</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hint"/>
+        <NamedIndividual IRI="#Problem6"/>
+        <Literal>Use the .values() method to access only dictionary values</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#problemDescription"/>
+        <NamedIndividual IRI="#Problem6"/>
+        <Literal>Print only the prices from: prices = {&apos;apple&apos;: 2.50, &apos;banana&apos;: 1.20, &apos;orange&apos;: 3.00}</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#expectedOutput"/>
+        <NamedIndividual IRI="#Solution1"/>
+        <Literal>1
+2
+3
+4
+5</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#solutionCode"/>
+        <NamedIndividual IRI="#Solution1"/>
+        <Literal>numbers = [1, 2, 3, 4, 5]
+for num in numbers:
+    print(num)</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#expectedOutput"/>
+        <NamedIndividual IRI="#Solution2"/>
+        <Literal>H
+E
+L
+L
+O</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#solutionCode"/>
+        <NamedIndividual IRI="#Solution2"/>
+        <Literal>word = &quot;HELLO&quot;
+for char in word:
+    print(char)</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#expectedOutput"/>
+        <NamedIndividual IRI="#Solution3"/>
+        <Literal>Index 0: apple
+Index 1: banana
+Index 2: cherry</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#solutionCode"/>
+        <NamedIndividual IRI="#Solution3"/>
+        <Literal>fruits = [&apos;apple&apos;, &apos;banana&apos;, &apos;cherry&apos;]
+for i, fruit in enumerate(fruits):
+    print(f&quot;Index {i}: {fruit}&quot;)</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#expectedOutput"/>
+        <NamedIndividual IRI="#Solution4"/>
+        <Literal>name: John
+age: 25
+city: London</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#solutionCode"/>
+        <NamedIndividual IRI="#Solution4"/>
+        <Literal>person = {&apos;name&apos;: &apos;John&apos;, &apos;age&apos;: 25, &apos;city&apos;: &apos;London&apos;}
+for key, value in person.items():
+    print(f&quot;{key}: {value}&quot;)</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#expectedOutput"/>
+        <NamedIndividual IRI="#Solution5"/>
+        <Literal>math
+science
+english</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#solutionCode"/>
+        <NamedIndividual IRI="#Solution5"/>
+        <Literal>grades = {&apos;math&apos;: 90, &apos;science&apos;: 85, &apos;english&apos;: 92}
+for subject in grades.keys():
+    print(subject)</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#expectedOutput"/>
+        <NamedIndividual IRI="#Solution6"/>
+        <Literal>$2.5
+$1.2
+$3.0</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#solutionCode"/>
+        <NamedIndividual IRI="#Solution6"/>
+        <Literal>prices = {&apos;apple&apos;: 2.50, &apos;banana&apos;: 1.20, &apos;orange&apos;: 3.00}
+for price in prices.values():
+    print(f&quot;${price}&quot;)</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#explanation"/>
+        <NamedIndividual IRI="#String"/>
+        <Literal>Strings are immutable sequence of characters that can be iterated over</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#codeExample"/>
+        <NamedIndividual IRI="#StringIteration"/>
+        <Literal>word = &quot;Python&quot;
+for char in word:
+    print(char)</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#explanation"/>
+        <NamedIndividual IRI="#StringIteration"/>
+        <Literal>Strings are iterable, allowing you to loop through each character.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#syntaxPattern"/>
+        <NamedIndividual IRI="#StringIteration"/>
+        <Literal>for char in string:</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#testDescription"/>
+        <NamedIndividual IRI="#TestCase1A"/>
+        <Literal>Test with small list of numbers</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#testInput"/>
+        <NamedIndividual IRI="#TestCase1A"/>
+        <Literal>numbers = [1, 2, 3, 4, 5]</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#testOutput"/>
+        <NamedIndividual IRI="#TestCase1A"/>
+        <Literal>1
+2
+3
+4
+5</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#testDescription"/>
+        <NamedIndividual IRI="#TestCase1B"/>
+        <Literal>Test with list of strings</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#testInput"/>
+        <NamedIndividual IRI="#TestCase1B"/>
+        <Literal>fruits = [&apos;apple&apos;, &apos;banana&apos;, &apos;cherry&apos;]</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#testOutput"/>
+        <NamedIndividual IRI="#TestCase1B"/>
+        <Literal>apple
+banana
+cherry</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#testDescription"/>
+        <NamedIndividual IRI="#TestCase1C"/>
+        <Literal>Test with single item list</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#testInput"/>
+        <NamedIndividual IRI="#TestCase1C"/>
+        <Literal>items = [42]</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#testOutput"/>
+        <NamedIndividual IRI="#TestCase1C"/>
+        <Literal>42</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#testDescription"/>
+        <NamedIndividual IRI="#TestCase2A"/>
+        <Literal>Test with uppercase word</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#testInput"/>
+        <NamedIndividual IRI="#TestCase2A"/>
+        <Literal>word = &quot;HELLO&quot;</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#testOutput"/>
+        <NamedIndividual IRI="#TestCase2A"/>
+        <Literal>H
+E
+L
+L
+O</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#testDescription"/>
+        <NamedIndividual IRI="#TestCase2B"/>
+        <Literal>Test with mixed case word</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#testInput"/>
+        <NamedIndividual IRI="#TestCase2B"/>
+        <Literal>word = &quot;Python&quot;</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#testOutput"/>
+        <NamedIndividual IRI="#TestCase2B"/>
+        <Literal>P
+y
+t
+h
+o
+n</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#testDescription"/>
+        <NamedIndividual IRI="#TestCase3A"/>
+        <Literal>Test enumerate with fruits</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#testInput"/>
+        <NamedIndividual IRI="#TestCase3A"/>
+        <Literal>fruits = [&apos;apple&apos;, &apos;banana&apos;, &apos;cherry&apos;]</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#testOutput"/>
+        <NamedIndividual IRI="#TestCase3A"/>
+        <Literal>Index 0: apple
+Index 1: banana
+Index 2: cherry</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#testDescription"/>
+        <NamedIndividual IRI="#TestCase3B"/>
+        <Literal>Test enumerate with colors</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#testInput"/>
+        <NamedIndividual IRI="#TestCase3B"/>
+        <Literal>colors = [&apos;red&apos;, &apos;green&apos;, &apos;blue&apos;]</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#testOutput"/>
+        <NamedIndividual IRI="#TestCase3B"/>
+        <Literal>Index 0: red
+Index 1: green
+Index 2: blue</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#testDescription"/>
+        <NamedIndividual IRI="#TestCase4A"/>
+        <Literal>Test dict.items() with person data</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#testInput"/>
+        <NamedIndividual IRI="#TestCase4A"/>
+        <Literal>person = {&apos;name&apos;: &apos;John&apos;, &apos;age&apos;: 25, &apos;city&apos;: &apos;London&apos;}</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#testOutput"/>
+        <NamedIndividual IRI="#TestCase4A"/>
+        <Literal>name: John
+age: 25
+city: London</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#testDescription"/>
+        <NamedIndividual IRI="#TestCase4B"/>
+        <Literal>Test dict.items() with student data</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#testInput"/>
+        <NamedIndividual IRI="#TestCase4B"/>
+        <Literal>student = {&apos;id&apos;: 101, &apos;grade&apos;: &apos;A&apos;, &apos;score&apos;: 95}</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#testOutput"/>
+        <NamedIndividual IRI="#TestCase4B"/>
+        <Literal>id: 101
+grade: A
+score: 95</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#testDescription"/>
+        <NamedIndividual IRI="#TestCase5A"/>
+        <Literal>Test dict.keys() with grades</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#testInput"/>
+        <NamedIndividual IRI="#TestCase5A"/>
+        <Literal>grades = {&apos;math&apos;: 90, &apos;science&apos;: 85, &apos;english&apos;: 92}</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#testOutput"/>
+        <NamedIndividual IRI="#TestCase5A"/>
+        <Literal>math
+science
+english</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#testDescription"/>
+        <NamedIndividual IRI="#TestCase5B"/>
+        <Literal>Test dict.keys() with scores</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#testInput"/>
+        <NamedIndividual IRI="#TestCase5B"/>
+        <Literal>scores = {&apos;test1&apos;: 88, &apos;test2&apos;: 91}</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#testInput"/>
+        <NamedIndividual IRI="#TestCase5B"/>
+        <Literal>test1
+test2</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#testDescription"/>
+        <NamedIndividual IRI="#TestCase6A"/>
+        <Literal>Test dict.values() with price data</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#testInput"/>
+        <NamedIndividual IRI="#TestCase6A"/>
+        <Literal>prices = {&apos;apple&apos;: 2.50, &apos;banana&apos;: 1.20, &apos;orange&apos;: 3.00}</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#testOutput"/>
+        <NamedIndividual IRI="#TestCase6A"/>
+        <Literal>$2.5
+$1.2
+$3.0</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#testDescription"/>
+        <NamedIndividual IRI="#TestCase6B"/>
+        <Literal>Test dict.values() with temperature data</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#testInput"/>
+        <NamedIndividual IRI="#TestCase6B"/>
+        <Literal>temps = {&apos;Monday&apos;: 72, &apos;Tuesday&apos;: 75, &apos;Wednesday&apos;: 68}</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#testOutput"/>
+        <NamedIndividual IRI="#TestCase6B"/>
+        <Literal>$72
+$75
+$68</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#testDescription"/>
+        <NamedIndividual IRI="#TestCase6C"/>
+        <Literal>Test dict.values() with single item</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#testInput"/>
+        <NamedIndividual IRI="#TestCase6C"/>
+        <Literal>data = {&apos;score&apos;: 100}</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#testOutput"/>
+        <NamedIndividual IRI="#TestCase6C"/>
+        <Literal>$100</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#explanation"/>
+        <NamedIndividual IRI="#Values"/>
+        <Literal>Dictionary method that returns only values</Literal>
+    </DataPropertyAssertion>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasIterable"/>
+        <Class IRI="#IterationConcept"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasMethod"/>
+        <Class IRI="#IterationConcept"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasMistake"/>
+        <Class IRI="#Problem"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasTestCase"/>
+        <Class IRI="#Problem"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#requiresConcept"/>
+        <Class IRI="#Problem"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#solvesProblem"/>
+        <Class IRI="#Solution"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#useTestCase"/>
+        <Class IRI="#Solution"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasIterable"/>
+        <Class IRI="#Iterable"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasMethod"/>
+        <Class IRI="#IterationMethod"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasMistake"/>
+        <Class IRI="#CommonMistake"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasTestCase"/>
+        <Class IRI="#TestCase"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#requiresConcept"/>
+        <Class IRI="#IterationConcept"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#solvesProblem"/>
+        <Class IRI="#Problem"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#useTestCase"/>
+        <Class IRI="#TestCase"/>
+    </ObjectPropertyRange>
+    <DataPropertyDomain>
+        <DataProperty IRI="#codeExample"/>
+        <Class IRI="#IterationConcept"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#difficultyLevel"/>
+        <Class IRI="#Problem"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#errorMessage"/>
+        <Class IRI="#CommonMistake"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#expectedOutput"/>
+        <Class IRI="#Solution"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#explanation"/>
+        <Class IRI="#Iterable"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#explanation"/>
+        <Class IRI="#IterationConcept"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#explanation"/>
+        <Class IRI="#IterationMethod"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#hint"/>
+        <Class IRI="#Problem"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#problemDescription"/>
+        <Class IRI="#Problem"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#solutionCode"/>
+        <Class IRI="#Solution"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#syntaxPattern"/>
+        <Class IRI="#IterationConcept"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#testDescription"/>
+        <Class IRI="#TestCase"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#testInput"/>
+        <Class IRI="#TestCase"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#testOutput"/>
+        <Class IRI="#TestCase"/>
+    </DataPropertyDomain>
+    <DataPropertyRange>
+        <DataProperty IRI="#codeExample"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#difficultyLevel"/>
+        <Datatype abbreviatedIRI="xsd:integer"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#errorMessage"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#expectedOutput"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#explanation"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#hint"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#problemDescription"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#solutionCode"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#syntaxPattern"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#testDescription"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#testInput"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#testOutput"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#CommonMistake</IRI>
+        <Literal>Common errors learners make</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Dictionary</IRI>
+        <Literal>Unordered collection of key-value pair surrunded by {}</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Enumerate</IRI>
+        <Literal>Built-in function that adds a counter to an iterable</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#ForLoop</IRI>
+        <Literal>Basic For loop Syntax for iteration</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Iterable</IRI>
+        <Literal>Data that can be iterated</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#IterationConcept</IRI>
+        <Literal>Python Iteration concepts to teach</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#IterationMethod</IRI>
+        <Literal>Method Used for Iteration</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#List</IRI>
+        <Literal>ordered, mutable collection of items surrounded by brackets []</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Problem</IRI>
+        <Literal>Practice Problems for learners</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Problem1</IRI>
+        <Literal>&quot;Print each number in the list: numbers = [1, 2, 3, 4, 5]&quot;</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Solution</IRI>
+        <Literal>Correct Answer or Code for a Problem</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#String</IRI>
+        <Literal>immutable sequence of characters that can be iterated</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#TestCase</IRI>
+        <Literal>Represents a test case with input data and expected output for validating student code</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#hasIterable</IRI>
+        <Literal>Concept has Iterable type</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#hasMethod</IRI>
+        <Literal>concept has a method</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#hasMistake</IRI>
+        <Literal>problem has common mistakes</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#hasTestCase</IRI>
+        <Literal>A Problem HAS TestCases to validate solutions</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#requiresConcept</IRI>
+        <Literal>problem requires concept to solve</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#solvesProblem</IRI>
+        <Literal>solution solves a problem</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#testDescription</IRI>
+        <Literal>A human-readable description of what this test checks</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#testInput</IRI>
+        <Literal>The input data/variables for the test</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#testOutput</IRI>
+        <Literal>The expected output when code runs with testInput</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#useTestCase</IRI>
+        <Literal>A Solution can be validated using these TestCases</Literal>
+    </AnnotationAssertion>
+</Ontology>
+
+
+
+<!-- Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi -->
+

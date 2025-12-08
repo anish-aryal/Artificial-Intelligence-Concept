@@ -1,3 +1,0 @@
-owlready2
-pydantic
-pytest
