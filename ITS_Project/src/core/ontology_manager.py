@@ -13,16 +13,16 @@ logger = logging.getLogger(__name__)
 
 
 class OntologyManager:
-    #Manages all interactions with the ontology
+    """Manages all interactions with the ontology"""
     
     def __init__(self, ontology_path):
-        #Load ontology from file path
+        """Load ontology from file path"""
         self.ontology_path = ontology_path
         self.onto = None
         self._load_ontology()
     
     def _load_ontology(self):
-        #Load and validate ontology file
+        """Load and validate ontology file"""
         try:
             # Verify file exists
             if not os.path.exists(self.ontology_path):
@@ -41,7 +41,7 @@ class OntologyManager:
             raise
     
     def get_concepts(self):
-        #Return all IterationConcept instances
+        """Return all IterationConcept instances"""
         try:
             concepts = list(self.onto.IterationConcept.instances())
             logger.info(f"Retrieved {len(concepts)} concepts")
@@ -118,7 +118,7 @@ class OntologyManager:
                 'name': problem.name,
                 'description': self._get_property(problem, 'problemDescription'),
                 'hint': self._get_property(problem, 'hint'),
-                'difficulty': self._get_property(problem, 'difficultyLevel'),
+                'difficulty': self._get_int_property(problem, 'difficultyLevel'),  # ← FIXED!
                 'concept': None,
                 'test_cases': []
             }
@@ -165,6 +165,16 @@ class OntologyManager:
         except Exception as e:
             logger.error(f"Error getting solution: {e}")
             return None
+    
+    def _get_int_property(self, instance, property_name):
+        """
+        Safely extract integer property value
+        Returns integer or None if property doesn't exist
+        """
+        value = self._get_property(instance, property_name)
+        if value is not None:
+            return int(value)  # Convert float to int
+        return None
     
     def _get_property(self, instance, property_name):
         """

@@ -66,14 +66,14 @@ class Fonts:
     BODY_SMALL = 13   
     CAPTION = 12      
     TINY = 11         
-    
-    # Font Weights (Modern scale)
-    LIGHT = 300
-    REGULAR = 400
-    MEDIUM = 500
-    SEMIBOLD = 600
-    BOLD = 700
-    EXTRABOLD = 800
+
+    # Font Weights
+    LIGHT = 'normal'
+    REGULAR = 'normal'
+    MEDIUM = 'normal'
+    SEMIBOLD = 'bold'
+    BOLD = 'bold'
+    EXTRABOLD = 'bold'
 
 
 # Spacing Scale (8px base - industry standard)
