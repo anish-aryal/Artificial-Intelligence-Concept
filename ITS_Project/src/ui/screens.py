@@ -1,201 +1,126 @@
 """
 Screen Modules
-Different screens for the tutoring system
+Different screens using CustomTkinter for modern UI
 """
 
-import tkinter as tk
+import customtkinter as ctk
 from .components import Button, Card, Label, CodeBlock, InputBox, Badge, Divider
-from .styles import Colors, Fonts, Spacing
+from .styles import Colors
 
 
 class WelcomeScreen:
-    """Welcome/Home screen with introduction"""
+    """Modern welcome screen"""
     
     @staticmethod
     def create(parent, manager, on_learn, on_practice):
-        """
-        Create welcome screen
-        
-        Args:
-            parent: Parent widget
-            manager: OntologyManager instance
-            on_learn: Callback for Learn button
-            on_practice: Callback for Practice button
-        """
+        """Create welcome screen"""
         # Clear parent
         for widget in parent.winfo_children():
             widget.destroy()
         
-        # Main container
-        container = tk.Frame(parent, bg=Colors.BACKGROUND)
-        container.pack(fill='both', expand=True, padx=40, pady=40)
+        # Scrollable container
+        scroll = ctk.CTkScrollableFrame(
+            parent,
+            fg_color=Colors.BACKGROUND
+        )
+        scroll.pack(fill='both', expand=True, padx=50, pady=40)
         
-        # Welcome card
-        welcome_card = Card.create(container)
-        welcome_card.pack(fill='x', pady=20)
+        # Hero section
+        hero = ctk.CTkFrame(scroll, fg_color='transparent')
+        hero.pack(fill='x', pady=(0, 40))
         
         # Title
-        title = Label.title(welcome_card, "🐍 Welcome to Python Iteration Tutor!")
-        title.pack(pady=(30, 10))
+        title = Label.title(hero, "Master Python Iteration")
+        title.pack(pady=(0, 12))
         
         # Subtitle
-        subtitle = Label.body(
-            welcome_card, 
-            "Master Python iteration through interactive learning and practice"
-        )
-        subtitle.pack(pady=(0, 30))
+        subtitle = Label.body(hero, "Interactive learning system powered by ontology")
+        subtitle.pack()
         
-        # Stats card
-        stats_card = Card.create(container)
-        stats_card.pack(fill='x', pady=20)
+        # Stats section
+        stats_frame = ctk.CTkFrame(scroll, fg_color='transparent')
+        stats_frame.pack(fill='x', pady=(0, 40))
         
-        stats_title = Label.heading(stats_card, "📊 What You'll Learn")
-        stats_title.pack(pady=(20, 15))
-        
-        # Get statistics
         stats = manager.get_statistics()
+        stat_data = [
+            (stats['concepts'], "Concepts", Colors.PRIMARY),
+            (stats['problems'], "Problems", Colors.SUCCESS),
+            (stats['test_cases'], "Test Cases", Colors.INFO)
+        ]
         
-        # Stats grid
-        stats_frame = tk.Frame(stats_card, bg=Colors.SURFACE)
-        stats_frame.pack(pady=(0, 20))
+        for value, label, color in stat_data:
+            # Stat card
+            card = Card.create(stats_frame)
+            card.pack(side='left', padx=10, expand=True, fill='both')
+            
+            # Number
+            num = ctk.CTkLabel(
+                card,
+                text=str(value),
+                font=('Arial', 48, 'bold'),
+                text_color=color
+            )
+            num.pack(pady=(20, 5))
+            
+            # Label
+            lbl = Label.muted(card, label)
+            lbl.pack(pady=(0, 20))
         
-        # Concepts stat
-        concept_frame = tk.Frame(stats_frame, bg=Colors.SURFACE)
-        concept_frame.pack(side='left', padx=30)
-        
-        concept_num = tk.Label(
-            concept_frame,
-            text=str(stats['concepts']),
-            font=('Arial', 48, 'bold'),
-            bg=Colors.SURFACE,
-            fg=Colors.PRIMARY
-        )
-        concept_num.pack()
-        
-        concept_label = Label.muted(concept_frame, "Concepts")
-        concept_label.pack()
-        
-        # Problems stat
-        problem_frame = tk.Frame(stats_frame, bg=Colors.SURFACE)
-        problem_frame.pack(side='left', padx=30)
-        
-        problem_num = tk.Label(
-            problem_frame,
-            text=str(stats['problems']),
-            font=('Arial', 48, 'bold'),
-            bg=Colors.SURFACE,
-            fg=Colors.SUCCESS
-        )
-        problem_num.pack()
-        
-        problem_label = Label.muted(problem_frame, "Practice Problems")
-        problem_label.pack()
-        
-        # Test cases stat
-        test_frame = tk.Frame(stats_frame, bg=Colors.SURFACE)
-        test_frame.pack(side='left', padx=30)
-        
-        test_num = tk.Label(
-            test_frame,
-            text=str(stats['test_cases']),
-            font=('Arial', 48, 'bold'),
-            bg=Colors.SURFACE,
-            fg=Colors.INFO
-        )
-        test_num.pack()
-        
-        test_label = Label.muted(test_frame, "Test Cases")
-        test_label.pack()
-        
-        # Action buttons
-        button_card = Card.create(container)
-        button_card.pack(fill='x', pady=20)
-        
-        button_title = Label.heading(button_card, "🚀 Get Started")
-        button_title.pack(pady=(20, 15))
-        
-        button_frame = tk.Frame(button_card, bg=Colors.SURFACE)
-        button_frame.pack(pady=(0, 25))
+        # Buttons
+        btn_frame = ctk.CTkFrame(scroll, fg_color='transparent')
+        btn_frame.pack()
         
         learn_btn = Button.create(
-            button_frame, 
-            "📚 Start Learning", 
-            on_learn, 
-            style='primary',
-            width=180
+            btn_frame,
+            "Start Learning →",
+            on_learn,
+            style='primary'
         )
         learn_btn.pack(side='left', padx=10)
         
         practice_btn = Button.create(
-            button_frame, 
-            "✏️ Practice Now", 
-            on_practice, 
-            style='success',
-            width=180
+            btn_frame,
+            "Practice Problems",
+            on_practice,
+            style='success'
         )
         practice_btn.pack(side='left', padx=10)
 
 
 class LearnScreen:
-    """Learning screen showing concepts"""
+    """Modern learning screen"""
     
     @staticmethod
     def create(parent, manager, current_concept_index=0):
-        """
-        Create learning screen
-        
-        Args:
-            parent: Parent widget
-            manager: OntologyManager instance
-            current_concept_index: Which concept to show
-        """
+        """Create learn screen"""
         # Clear parent
         for widget in parent.winfo_children():
             widget.destroy()
         
-        # Get all concepts
         concepts = manager.get_concepts()
         
         if not concepts or current_concept_index >= len(concepts):
             Label.heading(parent, "No concepts available").pack(pady=50)
             return
         
-        current_concept = concepts[current_concept_index]
-        details = manager.get_concept_details(current_concept)
+        concept = concepts[current_concept_index]
+        details = manager.get_concept_details(concept)
         
-        # Main container with scrolling
-        canvas = tk.Canvas(parent, bg=Colors.BACKGROUND, highlightthickness=0)
-        scrollbar = tk.Scrollbar(parent, orient='vertical', command=canvas.yview)
-        scrollable_frame = tk.Frame(canvas, bg=Colors.BACKGROUND)
+        # Scrollable content
+        scroll = ctk.CTkScrollableFrame(parent, fg_color=Colors.BACKGROUND)
+        scroll.pack(fill='both', expand=True, padx=50, pady=30)
         
-        scrollable_frame.bind(
-            "<Configure>",
-            lambda e: canvas.configure(scrollregion=canvas.bbox("all"))
-        )
+        # Progress
+        progress = Label.muted(scroll, f"Concept {current_concept_index + 1} of {len(concepts)}")
+        progress.pack(pady=(0, 10))
         
-        canvas.create_window((0, 0), window=scrollable_frame, anchor="nw")
-        canvas.configure(yscrollcommand=scrollbar.set)
+        # Title
+        title = Label.title(scroll, details['name'])
+        title.pack(pady=(0, 20))
         
-        # Content
-        content = tk.Frame(scrollable_frame, bg=Colors.BACKGROUND)
-        content.pack(fill='both', expand=True, padx=40, pady=30)
-        
-        # Header card
-        header_card = Card.create(content)
-        header_card.pack(fill='x', pady=(0, 20))
-        
-        # Progress indicator
-        progress_text = f"Concept {current_concept_index + 1} of {len(concepts)}"
-        progress_label = Label.muted(header_card, progress_text)
-        progress_label.pack(pady=(15, 5))
-        
-        # Concept name
-        concept_title = Label.title(header_card, details['name'])
-        concept_title.pack(pady=(5, 15))
-        
-        # Badges for iterable and method
-        badge_frame = tk.Frame(header_card, bg=Colors.SURFACE)
-        badge_frame.pack(pady=(0, 20))
+        # Badges
+        badge_frame = ctk.CTkFrame(scroll, fg_color='transparent')
+        badge_frame.pack(pady=(0, 30))
         
         if details.get('iterable'):
             Badge.create(
@@ -212,93 +137,70 @@ class LearnScreen:
             ).pack(side='left', padx=5)
         
         # Explanation card
-        explain_card = Card.create(content)
+        explain_card = Card.create(scroll)
         explain_card.pack(fill='x', pady=(0, 20))
         
-        Label.heading(explain_card, "📖 Explanation").pack(pady=(20, 10), anchor='w', padx=20)
-        Label.body(explain_card, details['explanation']).pack(pady=(0, 20), anchor='w', padx=20)
+        Label.heading(explain_card, "📖 Explanation").pack(anchor='w', padx=25, pady=(25, 10))
+        Label.body(explain_card, details['explanation']).pack(anchor='w', padx=25, pady=(0, 25))
         
         # Syntax card
-        syntax_card = Card.create(content)
+        syntax_card = Card.create(scroll)
         syntax_card.pack(fill='x', pady=(0, 20))
         
-        Label.heading(syntax_card, "✏️ Syntax Pattern").pack(pady=(20, 10), anchor='w', padx=20)
-        
-        syntax_display = CodeBlock.create(syntax_card, details['syntax'], height=3)
-        syntax_display.pack(fill='x', padx=20, pady=(0, 20))
+        Label.heading(syntax_card, "✏️ Syntax Pattern").pack(anchor='w', padx=25, pady=(25, 10))
+        CodeBlock.create(syntax_card, details['syntax'], height=80).pack(padx=25, pady=(0, 25))
         
         # Code example card
-        code_card = Card.create(content)
-        code_card.pack(fill='x', pady=(0, 20))
+        code_card = Card.create(scroll)
+        code_card.pack(fill='x', pady=(0, 30))
         
-        Label.heading(code_card, "💻 Code Example").pack(pady=(20, 10), anchor='w', padx=20)
+        Label.heading(code_card, "💻 Code Example").pack(anchor='w', padx=25, pady=(25, 10))
+        CodeBlock.create(code_card, details['code'], height=200).pack(padx=25, pady=(0, 25))
         
-        code_display = CodeBlock.create(code_card, details['code'], height=8)
-        code_display.pack(fill='x', padx=20, pady=(0, 20))
+        # Navigation
+        nav_frame = ctk.CTkFrame(scroll, fg_color='transparent')
+        nav_frame.pack()
         
-        # Navigation buttons
-        nav_card = Card.create(content)
-        nav_card.pack(fill='x', pady=(0, 20))
-        
-        nav_frame = tk.Frame(nav_card, bg=Colors.SURFACE)
-        nav_frame.pack(pady=20)
-        
-        # Previous button
         if current_concept_index > 0:
-            prev_btn = Button.create(
+            Button.create(
                 nav_frame,
                 "← Previous",
                 lambda: LearnScreen.create(parent, manager, current_concept_index - 1),
                 style='secondary',
-                width=120
-            )
-            prev_btn.pack(side='left', padx=10)
+                width=150
+            ).pack(side='left', padx=10)
         
-        # Next button
         if current_concept_index < len(concepts) - 1:
-            next_btn = Button.create(
+            Button.create(
                 nav_frame,
                 "Next →",
                 lambda: LearnScreen.create(parent, manager, current_concept_index + 1),
                 style='primary',
-                width=120
-            )
-            next_btn.pack(side='left', padx=10)
-        
-        # Pack canvas and scrollbar
-        canvas.pack(side='left', fill='both', expand=True)
-        scrollbar.pack(side='right', fill='y')
-        
-        # Mouse wheel scrolling
-        def on_mousewheel(event):
-            canvas.yview_scroll(int(-1*(event.delta/120)), "units")
-        
-        canvas.bind_all("<MouseWheel>", on_mousewheel)
+                width=150
+            ).pack(side='left', padx=0)
 
 
 class PracticeScreen:
-    """Practice screen with problems (placeholder for now)"""
+    """Practice screen (placeholder)"""
     
     @staticmethod
     def create(parent, manager):
         """Create practice screen"""
-        # Clear parent
         for widget in parent.winfo_children():
             widget.destroy()
         
         Label.title(parent, "✏️ Practice Problems").pack(pady=50)
-        Label.body(parent, "Practice screen coming next!").pack(pady=20)
+        Label.body(parent, "Coming next!").pack()
 
 
 class ProgressScreen:
-    """Progress tracking screen (placeholder for now)"""
+    """Progress screen (placeholder)"""
     
     @staticmethod
     def create(parent, manager):
         """Create progress screen"""
-        # Clear parent
         for widget in parent.winfo_children():
             widget.destroy()
         
         Label.title(parent, "📊 Your Progress").pack(pady=50)
-        Label.body(parent, "Progress tracking coming soon!").pack(pady=20)
+        Label.body(parent, "Coming soon!").pack()
