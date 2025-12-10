@@ -1,125 +1,154 @@
 """
-Main GUI Application
-Complete tutoring system using CustomTkinter
+Main GUI Application - Modern & Professional
 """
 
 import customtkinter as ctk
-from .screens import WelcomeScreen, LearnScreen, PracticeScreen, ProgressScreen
-from .styles import Colors, Sizes
+from src.ui.screens import DashboardScreen, LearnScreen, PracticeScreen, ProgressScreen
+from src.ui.styles import Colors, Typography, Layout, Spacing
+from src.core.gamification import GamificationSystem
 
 
 class PythonIterationTutor:
     """Main application class"""
     
     def __init__(self, ontology_manager):
-        """Initialize the application"""
+        """Initialize application"""
         self.manager = ontology_manager
         self.window = None
         self.content_frame = None
         
-        # User progress
-        self.current_level = 1
-        self.problems_solved = 0
-        self.total_score = 0
-        self.completed_problems = set()
+        # Initialize gamification
+        self.gamification = GamificationSystem()
+        
+        self.current_screen = 'dashboard'
         
     def create_window(self):
-        """Create the main window"""
+        """Create main window"""
         self.window = ctk.CTk()
-        self.window.title("🐍 Python Iteration Tutor")
-        self.window.geometry(f"{Sizes.WINDOW_WIDTH}x{Sizes.WINDOW_HEIGHT}")
+        self.window.title("Python Iteration Tutor")
+        self.window.geometry(f"{Layout.WINDOW_WIDTH}x{Layout.WINDOW_HEIGHT}")
         
         # Set minimum size
-        self.window.minsize(Sizes.WINDOW_MIN_WIDTH, Sizes.WINDOW_MIN_HEIGHT)
+        self.window.minsize(Layout.WINDOW_MIN_WIDTH, Layout.WINDOW_MIN_HEIGHT)
         
-        # Create header
-        self._create_header()
+        # Configure grid
+        self.window.grid_rowconfigure(1, weight=1)
+        self.window.grid_columnconfigure(0, weight=1)
+        
+        # Create navbar
+        self._create_navbar()
         
         # Create content area
-        self.content_frame = ctk.CTkFrame(self.window, fg_color=Colors.BACKGROUND)
-        self.content_frame.pack(fill='both', expand=True)
+        self.content_frame = ctk.CTkFrame(
+            self.window,
+            fg_color=Colors.BACKGROUND,
+            corner_radius=0
+        )
+        self.content_frame.grid(row=1, column=0, sticky='nsew')
         
-        # Show welcome screen
-        self.show_welcome()
+        # Show dashboard
+        self.show_dashboard()
         
-    def _create_header(self):
-        """Create navigation header"""
-        header = ctk.CTkFrame(
+    def _create_navbar(self):
+        """Create navigation bar"""
+        navbar = ctk.CTkFrame(
             self.window,
             fg_color=Colors.PRIMARY,
-            height=70,
-            corner_radius=0 
+            height=Layout.NAVBAR_HEIGHT,
+            corner_radius=0
         )
-        header.pack(fill='x', side='top')
-        header.pack_propagate(False)
+        navbar.grid(row=0, column=0, sticky='ew')
+        navbar.grid_propagate(False)
         
         # Title
+        title_frame = ctk.CTkFrame(navbar, fg_color='transparent')
+        title_frame.pack(side='left', padx=Spacing.XXL)
+        
         title = ctk.CTkLabel(
-            header,
-            text="🐍 Python Iteration Tutor",
-            font=('Arial', 20, 'bold'),
+            title_frame,
+            text="Python Iteration Tutor",
+            font=(Typography.FALLBACK, Typography.H4, 'bold'),
             text_color='white'
         )
-        title.pack(side='left', padx=30, pady=20)
+        title.pack()
         
         # Navigation buttons
-        nav_frame = ctk.CTkFrame(header, fg_color='transparent')
-        nav_frame.pack(side='right', padx=30)
+        nav_buttons = ctk.CTkFrame(navbar, fg_color='transparent')
+        nav_buttons.pack(side='right', padx=Spacing.XXL)
         
-        # Create nav buttons
-        nav_buttons = [
-            ("🏠 Home", self.show_welcome),
-            ("📚 Learn", self.show_learn),
-            ("✏️ Practice", self.show_practice),
-            ("📊 Progress", self.show_progress)
+        buttons = [
+            ("Dashboard", self.show_dashboard),
+            ("Learn", self.show_learn),
+            ("Practice", self.show_practice),
+            ("Progress", self.show_progress)
         ]
         
-        for text, command in nav_buttons:
+        for text, command in buttons:
             btn = ctk.CTkButton(
-                nav_frame,
+                nav_buttons,
                 text=text,
                 command=command,
                 width=100,
                 height=36,
-                fg_color=Colors.PRIMARY_DARK,
-                hover_color='#3730a3',
-                corner_radius=2,
-                font=('Arial', 11, 'bold')
+                fg_color='transparent',
+                hover_color=Colors.PRIMARY_DARK,
+                corner_radius=6,
+                font=(Typography.FALLBACK, Typography.BODY, 'bold'),
+                border_width=0
             )
-            btn.pack(side='left', padx=5)
+            btn.pack(side='left', padx=4)
     
-    def show_welcome(self):
-        """Show welcome screen"""
-        WelcomeScreen.create(
+    def show_dashboard(self):
+        """Show dashboard"""
+        self.current_screen = 'dashboard'
+        
+        user_data = self.gamification.get_stats()
+        
+        callbacks = {
+            'on_learn': self.show_learn,
+            'on_practice': self.show_practice,
+            'on_progress': self.show_progress
+        }
+        
+        DashboardScreen.create(
             self.content_frame,
             self.manager,
-            on_learn=self.show_learn,
-            on_practice=self.show_practice
+            user_data,
+            callbacks
         )
     
     def show_learn(self):
         """Show learning screen"""
+        self.current_screen = 'learn'
         LearnScreen.create(
             self.content_frame,
             self.manager,
-            current_concept_index=0
+            current_index=0,
+            on_back=self.show_dashboard,
+            on_practice=self.show_practice
         )
     
     def show_practice(self):
         """Show practice screen"""
+        self.current_screen = 'practice'
         PracticeScreen.create(
             self.content_frame,
-            self.manager
+            self.manager,
+            current_index=0,
+            on_back=self.show_dashboard,
+            gamification=self.gamification 
+
         )
     
     def show_progress(self):
         """Show progress screen"""
+        self.current_screen = 'progress'
         ProgressScreen.create(
             self.content_frame,
             self.manager
         )
     
     def run(self):
-        """Start the application"""
+        """Start application"""
         self.create_window()
         self.window.mainloop()

@@ -1,44 +1,42 @@
 """
-Main Entry Point
-Run this file to start the application
+Main Entry Point - Start the application
 """
 
 import sys
 import os
 
-# Add src to path
-sys.path.insert(0, os.path.dirname(__file__))
+# Add parent directory to path
+current_dir = os.path.dirname(os.path.abspath(__file__))
+parent_dir = os.path.dirname(current_dir)
+sys.path.insert(0, parent_dir)
 
-from core.ontology_manager import OntologyManager
-from ui.app import PythonIterationTutor
+from src.core.ontology_manager import OntologyManager
+from src.ui.app import PythonIterationTutor
 
 
 def main():
-    """Main function to start the application"""
-    print("=" * 60)
-    print("🐍 PYTHON ITERATION TUTOR")
-    print("=" * 60)
-    print("\nInitializing...")
+    """Main function"""
+    print("=" * 70)
+    print("PYTHON ITERATION TUTOR - Professional ITS")
+    print("=" * 70)
+    print("\nInitializing system...")
     
-    # Get ontology path (one level up from src/)
-    ontology_path = os.path.join(
-        os.path.dirname(__file__), 
-        '..', 
-        'python_iteration_tutor.owl'
-    )
+    # Get ontology path (in project root)
+    ontology_path = os.path.join(parent_dir, 'python_iteration_tutor.owl')
     
     try:
         # Load ontology
-        print(f"Loading ontology from: {ontology_path}")
+        print(f"Loading ontology...")
         manager = OntologyManager(ontology_path)
         
-        # Get stats
+        # Get statistics
         stats = manager.get_statistics()
-        print(f"\n✅ Ready!")
-        print(f"   • {stats['concepts']} concepts loaded")
-        print(f"   • {stats['problems']} problems available")
-        print(f"   • {stats['test_cases']} test cases ready")
-        print("\n" + "=" * 60)
+        print(f"\n✓ System Ready")
+        print(f"  • {stats['concepts']} concepts loaded")
+        print(f"  • {stats['problems']} problems available")
+        print(f"  • {stats['solutions']} solutions ready")
+        print(f"  • {stats['test_cases']} test cases configured")
+        print("\n" + "=" * 70)
         print("Starting GUI...\n")
         
         # Create and run application
@@ -46,11 +44,11 @@ def main():
         app.run()
         
     except FileNotFoundError as e:
-        print(f"\n❌ ERROR: {e}")
-        print("\nMake sure 'python_iteration_tutor.owl' is in the project root!")
+        print(f"\n✕ ERROR: {e}")
+        print("\nMake sure 'python_iteration_tutor.owl' is in the project root.")
         sys.exit(1)
     except Exception as e:
-        print(f"\n❌ ERROR: {e}")
+        print(f"\n✕ ERROR: {e}")
         import traceback
         traceback.print_exc()
         sys.exit(1)

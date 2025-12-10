@@ -202,43 +202,19 @@
         <NamedIndividual IRI="#TestCase1A"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual IRI="#TestCase1B"/>
-    </Declaration>
-    <Declaration>
-        <NamedIndividual IRI="#TestCase1C"/>
-    </Declaration>
-    <Declaration>
         <NamedIndividual IRI="#TestCase2A"/>
-    </Declaration>
-    <Declaration>
-        <NamedIndividual IRI="#TestCase2B"/>
     </Declaration>
     <Declaration>
         <NamedIndividual IRI="#TestCase3A"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual IRI="#TestCase3B"/>
-    </Declaration>
-    <Declaration>
         <NamedIndividual IRI="#TestCase4A"/>
-    </Declaration>
-    <Declaration>
-        <NamedIndividual IRI="#TestCase4B"/>
     </Declaration>
     <Declaration>
         <NamedIndividual IRI="#TestCase5A"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual IRI="#TestCase5B"/>
-    </Declaration>
-    <Declaration>
         <NamedIndividual IRI="#TestCase6A"/>
-    </Declaration>
-    <Declaration>
-        <NamedIndividual IRI="#TestCase6B"/>
-    </Declaration>
-    <Declaration>
-        <NamedIndividual IRI="#TestCase6C"/>
     </Declaration>
     <Declaration>
         <NamedIndividual IRI="#Values"/>
@@ -393,19 +369,7 @@
     </ClassAssertion>
     <ClassAssertion>
         <Class IRI="#TestCase"/>
-        <NamedIndividual IRI="#TestCase1B"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="#TestCase"/>
-        <NamedIndividual IRI="#TestCase1C"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="#TestCase"/>
         <NamedIndividual IRI="#TestCase2A"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="#TestCase"/>
-        <NamedIndividual IRI="#TestCase2B"/>
     </ClassAssertion>
     <ClassAssertion>
         <Class IRI="#TestCase"/>
@@ -413,15 +377,7 @@
     </ClassAssertion>
     <ClassAssertion>
         <Class IRI="#TestCase"/>
-        <NamedIndividual IRI="#TestCase3B"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="#TestCase"/>
         <NamedIndividual IRI="#TestCase4A"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="#TestCase"/>
-        <NamedIndividual IRI="#TestCase4B"/>
     </ClassAssertion>
     <ClassAssertion>
         <Class IRI="#TestCase"/>
@@ -429,19 +385,7 @@
     </ClassAssertion>
     <ClassAssertion>
         <Class IRI="#TestCase"/>
-        <NamedIndividual IRI="#TestCase5B"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="#TestCase"/>
         <NamedIndividual IRI="#TestCase6A"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="#TestCase"/>
-        <NamedIndividual IRI="#TestCase6B"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="#TestCase"/>
-        <NamedIndividual IRI="#TestCase6C"/>
     </ClassAssertion>
     <ClassAssertion>
         <Class IRI="#Values"/>
@@ -503,16 +447,6 @@
         <NamedIndividual IRI="#TestCase1A"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#hasTestCase"/>
-        <NamedIndividual IRI="#Problem1"/>
-        <NamedIndividual IRI="#TestCase1B"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#hasTestCase"/>
-        <NamedIndividual IRI="#Problem1"/>
-        <NamedIndividual IRI="#TestCase1C"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
         <ObjectProperty IRI="#requiresConcept"/>
         <NamedIndividual IRI="#Problem1"/>
         <NamedIndividual IRI="#BasicListIteration"/>
@@ -521,11 +455,6 @@
         <ObjectProperty IRI="#hasTestCase"/>
         <NamedIndividual IRI="#Problem2"/>
         <NamedIndividual IRI="#TestCase2A"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#hasTestCase"/>
-        <NamedIndividual IRI="#Problem2"/>
-        <NamedIndividual IRI="#TestCase2B"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#requiresConcept"/>
@@ -538,11 +467,6 @@
         <NamedIndividual IRI="#TestCase3A"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#hasTestCase"/>
-        <NamedIndividual IRI="#Problem3"/>
-        <NamedIndividual IRI="#TestCase3B"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
         <ObjectProperty IRI="#requiresConcept"/>
         <NamedIndividual IRI="#Problem3"/>
         <NamedIndividual IRI="#EnumerateListIteration"/>
@@ -551,11 +475,6 @@
         <ObjectProperty IRI="#hasTestCase"/>
         <NamedIndividual IRI="#Problem4"/>
         <NamedIndividual IRI="#TestCase4A"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#hasTestCase"/>
-        <NamedIndividual IRI="#Problem4"/>
-        <NamedIndividual IRI="#TestCase4B"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#requiresConcept"/>
@@ -568,11 +487,6 @@
         <NamedIndividual IRI="#TestCase5A"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#hasTestCase"/>
-        <NamedIndividual IRI="#Problem5"/>
-        <NamedIndividual IRI="#TestCase5B"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
         <ObjectProperty IRI="#requiresConcept"/>
         <NamedIndividual IRI="#Problem5"/>
         <NamedIndividual IRI="#DictKeysIteration"/>
@@ -581,16 +495,6 @@
         <ObjectProperty IRI="#hasTestCase"/>
         <NamedIndividual IRI="#Problem6"/>
         <NamedIndividual IRI="#TestCase6A"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#hasTestCase"/>
-        <NamedIndividual IRI="#Problem6"/>
-        <NamedIndividual IRI="#TestCase6B"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#hasTestCase"/>
-        <NamedIndividual IRI="#Problem6"/>
-        <NamedIndividual IRI="#TestCase6C"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#requiresConcept"/>
@@ -608,16 +512,6 @@
         <NamedIndividual IRI="#TestCase1A"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#useTestCase"/>
-        <NamedIndividual IRI="#Solution1"/>
-        <NamedIndividual IRI="#TestCase1B"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#useTestCase"/>
-        <NamedIndividual IRI="#Solution1"/>
-        <NamedIndividual IRI="#TestCase1C"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
         <ObjectProperty IRI="#solvesProblem"/>
         <NamedIndividual IRI="#Solution2"/>
         <NamedIndividual IRI="#Problem2"/>
@@ -626,11 +520,6 @@
         <ObjectProperty IRI="#useTestCase"/>
         <NamedIndividual IRI="#Solution2"/>
         <NamedIndividual IRI="#TestCase2A"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#useTestCase"/>
-        <NamedIndividual IRI="#Solution2"/>
-        <NamedIndividual IRI="#TestCase2B"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#solvesProblem"/>
@@ -643,11 +532,6 @@
         <NamedIndividual IRI="#TestCase3A"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#useTestCase"/>
-        <NamedIndividual IRI="#Solution3"/>
-        <NamedIndividual IRI="#TestCase3B"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
         <ObjectProperty IRI="#solvesProblem"/>
         <NamedIndividual IRI="#Solution4"/>
         <NamedIndividual IRI="#Problem4"/>
@@ -656,11 +540,6 @@
         <ObjectProperty IRI="#useTestCase"/>
         <NamedIndividual IRI="#Solution4"/>
         <NamedIndividual IRI="#TestCase4A"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#useTestCase"/>
-        <NamedIndividual IRI="#Solution4"/>
-        <NamedIndividual IRI="#TestCase4B"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#solvesProblem"/>
@@ -673,11 +552,6 @@
         <NamedIndividual IRI="#TestCase5A"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#useTestCase"/>
-        <NamedIndividual IRI="#Solution5"/>
-        <NamedIndividual IRI="#TestCase5B"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
         <ObjectProperty IRI="#solvesProblem"/>
         <NamedIndividual IRI="#Solution6"/>
         <NamedIndividual IRI="#Problem6"/>
@@ -686,16 +560,6 @@
         <ObjectProperty IRI="#useTestCase"/>
         <NamedIndividual IRI="#Solution6"/>
         <NamedIndividual IRI="#TestCase6A"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#useTestCase"/>
-        <NamedIndividual IRI="#Solution6"/>
-        <NamedIndividual IRI="#TestCase6B"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#useTestCase"/>
-        <NamedIndividual IRI="#Solution6"/>
-        <NamedIndividual IRI="#TestCase6C"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#hasIterable"/>
@@ -1058,38 +922,6 @@ for char in word:
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#testDescription"/>
-        <NamedIndividual IRI="#TestCase1B"/>
-        <Literal>Test with list of strings</Literal>
-    </DataPropertyAssertion>
-    <DataPropertyAssertion>
-        <DataProperty IRI="#testInput"/>
-        <NamedIndividual IRI="#TestCase1B"/>
-        <Literal>fruits = [&apos;apple&apos;, &apos;banana&apos;, &apos;cherry&apos;]</Literal>
-    </DataPropertyAssertion>
-    <DataPropertyAssertion>
-        <DataProperty IRI="#testOutput"/>
-        <NamedIndividual IRI="#TestCase1B"/>
-        <Literal>apple
-banana
-cherry</Literal>
-    </DataPropertyAssertion>
-    <DataPropertyAssertion>
-        <DataProperty IRI="#testDescription"/>
-        <NamedIndividual IRI="#TestCase1C"/>
-        <Literal>Test with single item list</Literal>
-    </DataPropertyAssertion>
-    <DataPropertyAssertion>
-        <DataProperty IRI="#testInput"/>
-        <NamedIndividual IRI="#TestCase1C"/>
-        <Literal>items = [42]</Literal>
-    </DataPropertyAssertion>
-    <DataPropertyAssertion>
-        <DataProperty IRI="#testOutput"/>
-        <NamedIndividual IRI="#TestCase1C"/>
-        <Literal>42</Literal>
-    </DataPropertyAssertion>
-    <DataPropertyAssertion>
-        <DataProperty IRI="#testDescription"/>
         <NamedIndividual IRI="#TestCase2A"/>
         <Literal>Test with uppercase word</Literal>
     </DataPropertyAssertion>
@@ -1106,26 +938,6 @@ E
 L
 L
 O</Literal>
-    </DataPropertyAssertion>
-    <DataPropertyAssertion>
-        <DataProperty IRI="#testDescription"/>
-        <NamedIndividual IRI="#TestCase2B"/>
-        <Literal>Test with mixed case word</Literal>
-    </DataPropertyAssertion>
-    <DataPropertyAssertion>
-        <DataProperty IRI="#testInput"/>
-        <NamedIndividual IRI="#TestCase2B"/>
-        <Literal>word = &quot;Python&quot;</Literal>
-    </DataPropertyAssertion>
-    <DataPropertyAssertion>
-        <DataProperty IRI="#testOutput"/>
-        <NamedIndividual IRI="#TestCase2B"/>
-        <Literal>P
-y
-t
-h
-o
-n</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#testDescription"/>
@@ -1146,23 +958,6 @@ Index 2: cherry</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#testDescription"/>
-        <NamedIndividual IRI="#TestCase3B"/>
-        <Literal>Test enumerate with colors</Literal>
-    </DataPropertyAssertion>
-    <DataPropertyAssertion>
-        <DataProperty IRI="#testInput"/>
-        <NamedIndividual IRI="#TestCase3B"/>
-        <Literal>colors = [&apos;red&apos;, &apos;green&apos;, &apos;blue&apos;]</Literal>
-    </DataPropertyAssertion>
-    <DataPropertyAssertion>
-        <DataProperty IRI="#testOutput"/>
-        <NamedIndividual IRI="#TestCase3B"/>
-        <Literal>Index 0: red
-Index 1: green
-Index 2: blue</Literal>
-    </DataPropertyAssertion>
-    <DataPropertyAssertion>
-        <DataProperty IRI="#testDescription"/>
         <NamedIndividual IRI="#TestCase4A"/>
         <Literal>Test dict.items() with person data</Literal>
     </DataPropertyAssertion>
@@ -1177,23 +972,6 @@ Index 2: blue</Literal>
         <Literal>name: John
 age: 25
 city: London</Literal>
-    </DataPropertyAssertion>
-    <DataPropertyAssertion>
-        <DataProperty IRI="#testDescription"/>
-        <NamedIndividual IRI="#TestCase4B"/>
-        <Literal>Test dict.items() with student data</Literal>
-    </DataPropertyAssertion>
-    <DataPropertyAssertion>
-        <DataProperty IRI="#testInput"/>
-        <NamedIndividual IRI="#TestCase4B"/>
-        <Literal>student = {&apos;id&apos;: 101, &apos;grade&apos;: &apos;A&apos;, &apos;score&apos;: 95}</Literal>
-    </DataPropertyAssertion>
-    <DataPropertyAssertion>
-        <DataProperty IRI="#testOutput"/>
-        <NamedIndividual IRI="#TestCase4B"/>
-        <Literal>id: 101
-grade: A
-score: 95</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#testDescription"/>
@@ -1214,22 +992,6 @@ english</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#testDescription"/>
-        <NamedIndividual IRI="#TestCase5B"/>
-        <Literal>Test dict.keys() with scores</Literal>
-    </DataPropertyAssertion>
-    <DataPropertyAssertion>
-        <DataProperty IRI="#testInput"/>
-        <NamedIndividual IRI="#TestCase5B"/>
-        <Literal>scores = {&apos;test1&apos;: 88, &apos;test2&apos;: 91}</Literal>
-    </DataPropertyAssertion>
-    <DataPropertyAssertion>
-        <DataProperty IRI="#testInput"/>
-        <NamedIndividual IRI="#TestCase5B"/>
-        <Literal>test1
-test2</Literal>
-    </DataPropertyAssertion>
-    <DataPropertyAssertion>
-        <DataProperty IRI="#testDescription"/>
         <NamedIndividual IRI="#TestCase6A"/>
         <Literal>Test dict.values() with price data</Literal>
     </DataPropertyAssertion>
@@ -1244,38 +1006,6 @@ test2</Literal>
         <Literal>$2.5
 $1.2
 $3.0</Literal>
-    </DataPropertyAssertion>
-    <DataPropertyAssertion>
-        <DataProperty IRI="#testDescription"/>
-        <NamedIndividual IRI="#TestCase6B"/>
-        <Literal>Test dict.values() with temperature data</Literal>
-    </DataPropertyAssertion>
-    <DataPropertyAssertion>
-        <DataProperty IRI="#testInput"/>
-        <NamedIndividual IRI="#TestCase6B"/>
-        <Literal>temps = {&apos;Monday&apos;: 72, &apos;Tuesday&apos;: 75, &apos;Wednesday&apos;: 68}</Literal>
-    </DataPropertyAssertion>
-    <DataPropertyAssertion>
-        <DataProperty IRI="#testOutput"/>
-        <NamedIndividual IRI="#TestCase6B"/>
-        <Literal>$72
-$75
-$68</Literal>
-    </DataPropertyAssertion>
-    <DataPropertyAssertion>
-        <DataProperty IRI="#testDescription"/>
-        <NamedIndividual IRI="#TestCase6C"/>
-        <Literal>Test dict.values() with single item</Literal>
-    </DataPropertyAssertion>
-    <DataPropertyAssertion>
-        <DataProperty IRI="#testInput"/>
-        <NamedIndividual IRI="#TestCase6C"/>
-        <Literal>data = {&apos;score&apos;: 100}</Literal>
-    </DataPropertyAssertion>
-    <DataPropertyAssertion>
-        <DataProperty IRI="#testOutput"/>
-        <NamedIndividual IRI="#TestCase6C"/>
-        <Literal>$100</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#explanation"/>

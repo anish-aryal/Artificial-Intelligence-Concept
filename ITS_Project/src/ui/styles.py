@@ -1,26 +1,26 @@
 """
-UI Styles and Constants
-Modern design using CustomTkinter
+Modern UI Styles - Professional Design System
 """
 
 import customtkinter as ctk
 
-# Set global CustomTkinter theme
-ctk.set_appearance_mode("light")  # "light" or "dark"
+ctk.set_appearance_mode("light")
 ctk.set_default_color_theme("blue")
 
 
 class Colors:
-    """Modern color palette"""
+    """Modern color system"""
     
-    # Primary colors
+    # Primary
     PRIMARY = "#6366f1"
     PRIMARY_DARK = "#4f46e5"
+    PRIMARY_LIGHT = "#818cf8"
     PRIMARY_SUBTLE = "#eef2ff"
     
-    # Accent colors
+    # Semantic
     SUCCESS = "#10b981"
     SUCCESS_DARK = "#059669"
+    SUCCESS_LIGHT = "#34d399"
     SUCCESS_SUBTLE = "#d1fae5"
     
     WARNING = "#f59e0b"
@@ -32,56 +32,93 @@ class Colors:
     INFO = "#3b82f6"
     INFO_SUBTLE = "#dbeafe"
     
-    # Neutral colors
-    GRAY_50 = '#f9fafb'
-    GRAY_100 = '#f3f4f6'
-    GRAY_200 = '#e5e7eb'
-    GRAY_500 = '#6b7280'
-    GRAY_600 = '#4b5563'
-    GRAY_900 = '#111827'
+    # Neutrals
+    GRAY_50 = '#fafafa'
+    GRAY_100 = '#f4f4f5'
+    GRAY_200 = '#e4e4e7'
+    GRAY_300 = '#d4d4d8'
+    GRAY_400 = '#a1a1aa'
+    GRAY_500 = '#71717a'
+    GRAY_600 = '#52525b'
+    GRAY_700 = '#3f3f46'
+    GRAY_800 = '#27272a'
+    GRAY_900 = '#18181b'
     
-    # Semantic colors
+    # UI Elements
     BACKGROUND = GRAY_50
     SURFACE = '#ffffff'
+    SURFACE_HOVER = GRAY_100
+    BORDER = GRAY_200
+    BORDER_FOCUS = PRIMARY
+    
+    # Text
     TEXT_PRIMARY = GRAY_900
     TEXT_SECONDARY = GRAY_600
     TEXT_MUTED = GRAY_500
-    BORDER = GRAY_200
-
-
-class Fonts:
-    """Font settings"""
-    PRIMARY = 'Arial'
-    MONOSPACE = 'Courier New'
+    TEXT_INVERSE = '#ffffff'
     
-    TITLE = 40
-    HEADING_1 = 24
-    HEADING_2 = 20
+    # Code
+    CODE_BG = '#1e1e1e'
+    CODE_TEXT = '#d4d4d4'
+
+
+class Typography:
+    """Typography scale"""
+    
+    PRIMARY = 'Arial'
+    FALLBACK = 'Arial'
+    MONO = 'Courier New'
+    MONO_FALLBACK = 'Courier New'
+    
+    DISPLAY = 48
+    H1 = 36
+    H2 = 30
+    H3 = 24
+    H4 = 20
+    H5 = 18
     BODY_LARGE = 16
     BODY = 14
     BODY_SMALL = 13
     CAPTION = 12
+    TINY = 11
 
 
 class Spacing:
     """Spacing scale"""
-    XXS = 4
-    XS = 8
-    SM = 12
-    MD = 16
-    LG = 24
-    XL = 32
-    XXL = 48
+    XXS = 2      # ← ADDED
+    XS = 4
+    SM = 8
+    MD = 12
+    BASE = 16
+    LG = 20
+    XL = 24
+    XXL = 32
+    XXXL = 48
+    GIANT = 64
 
 
-class Sizes:
-    """Component sizes"""
-    WINDOW_WIDTH = 1100
-    WINDOW_HEIGHT = 750
-    WINDOW_MIN_WIDTH = 900
-    WINDOW_MIN_HEIGHT = 600
+class Layout:
+    """Layout dimensions"""
     
-    BUTTON_WIDTH = 200
-    BUTTON_HEIGHT = 48
+    WINDOW_WIDTH = 1400
+    WINDOW_HEIGHT = 900
+    WINDOW_MIN_WIDTH = 1200
+    WINDOW_MIN_HEIGHT = 700
     
-    CORNER_RADIUS = 10
+    NAVBAR_HEIGHT = 64
+    
+    BUTTON_HEIGHT_SM = 36
+    BUTTON_HEIGHT_MD = 44
+    BUTTON_HEIGHT_LG = 52
+    
+    CARD_PADDING = 24
+
+
+class Effects:
+    """Visual effects"""
+    
+    RADIUS_SM = 6
+    RADIUS_MD = 8
+    RADIUS_LG = 12
+    RADIUS_XL = 16
+    RADIUS_FULL = 9999

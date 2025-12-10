@@ -50,6 +50,19 @@ class OntologyManager:
             logger.error(f"Error getting concepts: {e}")
             return []
     
+    def get_problems(self):
+        """
+        Get all problems regardless of difficulty
+        Returns list of Problem instances
+        """
+        try:
+            problems = list(self.onto.Problem.instances())
+            logger.info(f"Retrieved {len(problems)} problems")
+            return problems
+        except Exception as e:
+            logger.error(f"Error getting problems: {e}")
+            return []
+    
     def get_concept_details(self, concept):
         """
         Extract all details for a concept
@@ -111,16 +124,18 @@ class OntologyManager:
     def get_problem_details(self, problem):
         """
         Extract all details for a problem
-        Returns dict with: name, description, hint, difficulty, concept, test_cases
+        Returns dict with: name, description, hint, difficulty, concept, test_cases, expected_output, starter_code
         """
         try:
             details = {
                 'name': problem.name,
                 'description': self._get_property(problem, 'problemDescription'),
-                'hint': self._get_property(problem, 'hint'),
-                'difficulty': self._get_int_property(problem, 'difficultyLevel'),  # ← FIXED!
+                'hint': self._get_property(problem, 'hint') or 'Try breaking the problem into smaller steps.',
+                'difficulty': self._get_int_property(problem, 'difficultyLevel') or 1,
                 'concept': None,
-                'test_cases': []
+                'test_cases': [],
+                'expected_output': '',
+                'starter_code': '# Write your code here\n'
             }
             
             # Get required concept name
@@ -132,11 +147,15 @@ class OntologyManager:
             if hasattr(problem, 'hasTestCase') and problem.hasTestCase:
                 for tc in problem.hasTestCase:
                     test_case = {
-                        'description': self._get_property(tc, 'testDescription'),
-                        'input': self._get_property(tc, 'testInput'),
-                        'output': self._get_property(tc, 'testOutput')
+                        'description': self._get_property(tc, 'testDescription') or f"Test {len(details['test_cases']) + 1}",
+                        'input': self._get_property(tc, 'testInput') or '',
+                        'output': self._get_property(tc, 'testOutput') or ''
                     }
                     details['test_cases'].append(test_case)
+                    
+                    # Set expected output from first test case
+                    if not details['expected_output'] and test_case['output']:
+                        details['expected_output'] = test_case['output']
             
             return details
             
