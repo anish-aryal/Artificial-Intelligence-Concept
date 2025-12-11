@@ -60,6 +60,7 @@ class Colors:
     # Code
     CODE_BG = '#1e1e1e'
     CODE_TEXT = '#d4d4d4'
+    WHITE = '#ffffff'
 
 
 class Typography:

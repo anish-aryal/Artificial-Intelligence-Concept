@@ -145,7 +145,9 @@ class PythonIterationTutor:
         self.current_screen = 'progress'
         ProgressScreen.create(
             self.content_frame,
-            self.manager
+            self.manager,
+            self.gamification,  # ← ADD THIS
+            self.show_dashboard  # ← ADD THIS (for back button)
         )
     
     def run(self):
