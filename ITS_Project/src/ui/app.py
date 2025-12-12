@@ -102,6 +102,8 @@ class PythonIterationTutor:
         """Show dashboard"""
         self.current_screen = 'dashboard'
         
+        # Reload to get latest stats
+        self.gamification = GamificationSystem()
         user_data = self.gamification.get_stats()
         
         callbacks = {
@@ -128,26 +130,40 @@ class PythonIterationTutor:
             on_practice=self.show_practice
         )
     
-    def show_practice(self):
+    def show_practice(self, index=0):
         """Show practice screen"""
         self.current_screen = 'practice'
+        
+        # Reload to get latest stats
+        self.gamification = GamificationSystem()
+        
         PracticeScreen.create(
             self.content_frame,
             self.manager,
-            current_index=0,
-            on_back=self.show_dashboard,
-            gamification=self.gamification 
-
+            index,
+            self.show_dashboard,
+            self.gamification,
+            on_progress_update=self.handle_progress_update
         )
-    
+
+    def handle_progress_update(self):
+        """Called when progress changes (problem solved, XP gained, etc.)"""
+        # Reload gamification data from file
+        self.gamification = GamificationSystem()
+        # Don't navigate - just update the data
+
     def show_progress(self):
         """Show progress screen"""
         self.current_screen = 'progress'
+        
+        # IMPORTANT: Reload gamification to get latest stats
+        self.gamification = GamificationSystem()
+        
         ProgressScreen.create(
             self.content_frame,
             self.manager,
-            self.gamification,  # ← ADD THIS
-            self.show_dashboard  # ← ADD THIS (for back button)
+            self.gamification,
+            self.show_dashboard
         )
     
     def run(self):

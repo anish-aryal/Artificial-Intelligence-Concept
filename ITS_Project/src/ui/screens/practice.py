@@ -12,7 +12,8 @@ class PracticeScreen:
     """Practice screen - results inline"""
     
     @staticmethod
-    def create(parent, manager, current_index=0, on_back=None, gamification=None):
+    def create(parent, manager, current_index=0, on_back=None, gamification=None, on_progress_update=None):
+        """Create practice screen with callback support"""
         for widget in parent.winfo_children():
             widget.destroy()
         
@@ -235,14 +236,26 @@ class PracticeScreen:
             v = CodeValidator()
             r = v.validate_with_test_cases(c, details, s['code'])
             l.destroy()
-            PracticeScreen._show_result(res, r, gamification, details['name'], parent, manager, current_index, on_back)
+            PracticeScreen._show_result(res, r, gamification, details['name'], parent, manager, current_index, on_back, on_progress_update)
         
         def hint():
+            # Record hint usage
+            if gamification:
+                gamification.record_hint_used()
+                if on_progress_update:
+                    on_progress_update()
+            
             for w in res.winfo_children():
                 w.destroy()
             Alert.create(res, f"💡 {details.get('hint', 'Try step by step!')}", variant='info').pack()
         
         def sol():
+            # Record solution viewed
+            if gamification:
+                gamification.record_solution_viewed()
+                if on_progress_update:
+                    on_progress_update()
+            
             s = manager.get_solution(problem)
             if not s or not s.get('code'):
                 for w in res.winfo_children():
@@ -267,12 +280,12 @@ class PracticeScreen:
         fc.pack(fill='x', padx=Spacing.XXL, pady=Spacing.BASE)
         
         if current_index > 0:
-            Button.create(fc, f"{Icons.ARROW_LEFT} Previous", lambda: PracticeScreen.create(parent, manager, current_index - 1, on_back, gamification), variant='secondary', size='md').pack(side='left')
+            Button.create(fc, f"{Icons.ARROW_LEFT} Previous", lambda: PracticeScreen.create(parent, manager, current_index - 1, on_back, gamification, on_progress_update), variant='secondary', size='md').pack(side='left')
         if current_index < len(problems) - 1:
-            Button.create(fc, f"Next {Icons.ARROW_RIGHT}", lambda: PracticeScreen.create(parent, manager, current_index + 1, on_back, gamification), variant='primary', size='md').pack(side='right')
+            Button.create(fc, f"Next {Icons.ARROW_RIGHT}", lambda: PracticeScreen.create(parent, manager, current_index + 1, on_back, gamification, on_progress_update), variant='primary', size='md').pack(side='right')
     
     @staticmethod
-    def _show_result(area, result, gam, problem_name, parent, manager, current_index, on_back):
+    def _show_result(area, result, gam, problem_name, parent, manager, current_index, on_back, on_progress_update=None):
         for w in area.winfo_children():
             w.destroy()
         
@@ -338,15 +351,18 @@ class PracticeScreen:
                     
                     xp_label = ctk.CTkLabel(
                         xp_badge,
-                        text=f"🎉 +{xp_result['xp_gained']} XP",
+                        text=f"+{xp_result['xp_gained']} XP",
                         font=(Typography.FALLBACK, Typography.BODY, 'bold'),
                         text_color=Colors.SUCCESS_DARK
                     )
                     xp_label.pack(padx=Spacing.BASE, pady=Spacing.SM)
                     
+                    # NEW: Trigger callback to notify that progress changed
+                    if on_progress_update:
+                        on_progress_update()
+                    
                     # Check for level up and show popup
                     if xp_result.get('leveled_up', False):
-                        # Show popup after a short delay
                         parent.after(800, lambda: PracticeScreen._show_level_up_popup(
                             parent,
                             xp_result.get('leveled_up_from', xp_result['new_level'] - 1),
@@ -401,6 +417,12 @@ class PracticeScreen:
                     font=(Typography.FALLBACK, Typography.BODY),
                     text_color=Colors.TEXT_SECONDARY
                 ).pack(anchor='w')
+            
+            # CRITICAL: Record failed attempt - THIS IS THE FIX!
+            if gam:
+                gam.record_problem_attempt(problem_name, sc, perfect=False)
+                if on_progress_update:
+                    on_progress_update()
     
     @staticmethod
     def _show_level_up_popup(parent, old_level, new_level, current_xp):
@@ -445,8 +467,9 @@ class PracticeScreen:
         
         icon_label = ctk.CTkLabel(
             icon_frame,
-            text="🎉",
-            font=(Typography.FALLBACK, Typography.DISPLAY)
+            text=Icons.STAR,
+            font=(Typography.FALLBACK, Typography.DISPLAY, 'bold'),
+            text_color=Colors.TEXT_INVERSE
         )
         icon_label.pack(expand=True)
         
@@ -461,7 +484,7 @@ class PracticeScreen:
         # Level progress
         level_text = ctk.CTkLabel(
             content,
-            text=f"Level {old_level} → Level {new_level}",
+            text=f"Level {old_level} {Icons.ARROW_RIGHT} Level {new_level}",
             font=(Typography.FALLBACK, Typography.H3),
             text_color=Colors.TEXT_PRIMARY
         )
