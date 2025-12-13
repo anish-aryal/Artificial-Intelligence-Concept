@@ -1,13 +1,22 @@
 {
   "level": 1,
-  "xp": 0,
-  "total_attempts": 0,
-  "problems_solved_count": 0,
+  "xp": 70,
+  "total_attempts": 21,
+  "problems_solved_count": 1,
   "concepts_completed": [],
-  "perfect_scores": 0,
-  "hints_used": 0,
-  "solved_problems": [],
-  "problem_stats": {},
+  "perfect_scores": 1,
+  "hints_used": 3,
+  "solved_problems": [
+    "Problem1"
+  ],
+  "problem_stats": {
+    "Problem1": {
+      "attempts": 21,
+      "solved": true,
+      "best_score": 100,
+      "perfect_count": 8
+    }
+  },
   "created_at": "2025-12-11T22:20:38.875426",
-  "last_updated": "2025-12-12T20:31:25.794922"
+  "last_updated": "2025-12-13T18:44:57.342659"
 }

@@ -1,32 +1,122 @@
 """
 Code Validator - Validates student Python code
-Hybrid approach: Checks against BOTH solution and expected output
+Hybrid approach with Common Mistake Detection
 """
 
 import ast
 import io
 import sys
+import re
 from contextlib import redirect_stdout, redirect_stderr
 
 
 class CodeValidator:
-    """Validates student code submissions - Hybrid Method"""
+    """Validates student code submissions with smart error detection"""
     
     def __init__(self):
         """Initialize validator"""
         self.timeout = 5
+    
+    def detect_common_mistakes(self, code, problem_concept=None):
+        """
+        Analyze code for common mistakes based on patterns
+        
+        Args:
+            code: Student's code
+            problem_concept: The concept being tested (e.g., 'BasicListIteration')
+            
+        Returns:
+            List of detected mistake descriptions
+        """
+        detected = []
+        code_stripped = code.strip()
+        code_lower = code_stripped.lower()
+        
+        # Pattern 1: Missing colon at end of for statement
+        for_lines = [line for line in code_stripped.split('\n') if line.strip().startswith('for ')]
+        for line in for_lines:
+            line_stripped = line.strip()
+            if ' in ' in line_stripped and not line_stripped.endswith(':'):
+                detected.append({
+                    'type': 'missing_colon',
+                    'message': "Missing colon (:) at the end of the for statement. Python requires a colon to start a code block.",
+                    'line': line_stripped
+                })
+        
+        # Pattern 2: Missing 'in' keyword
+        for line in for_lines:
+            if ' in ' not in line:
+                detected.append({
+                    'type': 'missing_in',
+                    'message': "Missing 'in' keyword in for loop. Correct syntax: for item in collection:",
+                    'line': line.strip()
+                })
+        
+        # Pattern 3: Using index when not needed (for simple iteration)
+        if problem_concept == 'BasicListIteration' or problem_concept == 'StringIteration':
+            if '[i]' in code_stripped or '[index]' in code_stripped:
+                if 'enumerate' not in code_lower:
+                    detected.append({
+                        'type': 'unnecessary_index',
+                        'message': "Using index syntax when not needed. When iterating directly with 'for item in list', the item variable already contains the value.",
+                        'line': None
+                    })
+        
+        # Pattern 4: enumerate() without two variables
+        if 'enumerate' in code_lower:
+            # Check if there's a comma before 'in'
+            enumerate_pattern = r'for\s+(\w+)\s+in\s+enumerate'
+            if re.search(enumerate_pattern, code_lower):
+                detected.append({
+                    'type': 'enumerate_single_var',
+                    'message': "enumerate() returns (index, value) tuples. You must unpack both: for i, item in enumerate(list)",
+                    'line': None
+                })
+        
+        # Pattern 5: .items() without two variables
+        if '.items()' in code_lower:
+            items_pattern = r'for\s+(\w+)\s+in\s+\w+\.items\(\)'
+            if re.search(items_pattern, code_lower):
+                detected.append({
+                    'type': 'items_single_var',
+                    'message': "dict.items() returns (key, value) tuples. You must unpack both: for key, value in dict.items()",
+                    'line': None
+                })
+        
+        # Pattern 6: Using .items() when .keys() or .values() is needed
+        if problem_concept == 'DictKeysIteration' and '.items()' in code_lower:
+            detected.append({
+                'type': 'wrong_method',
+                'message': "Use .keys() to iterate over dictionary keys only, not .items()",
+                'line': None
+            })
+        
+        if problem_concept == 'DictValuesIteration' and '.items()' in code_lower:
+            detected.append({
+                'type': 'wrong_method',
+                'message': "Use .values() to iterate over dictionary values only, not .items()",
+                'line': None
+            })
+        
+        # Pattern 7: Incorrect indentation (no indented line after for)
+        lines = code_stripped.split('\n')
+        for i, line in enumerate(lines):
+            if line.strip().startswith('for ') and line.strip().endswith(':'):
+                # Check if next line exists and is indented
+                if i + 1 < len(lines):
+                    next_line = lines[i + 1]
+                    if next_line.strip() and not next_line.startswith((' ', '\t')):
+                        detected.append({
+                            'type': 'indentation',
+                            'message': "Loop body must be indented. Python uses indentation to define code blocks (usually 4 spaces).",
+                            'line': next_line.strip()
+                        })
+        
+        return detected
         
     def validate_hybrid(self, student_code, solution_code, expected_output):
         """
         Hybrid validation - Check against BOTH solution and expected output
-        
-        Args:
-            student_code: Student's code
-            solution_code: Correct solution code
-            expected_output: Expected output from test case
-            
-        Returns:
-            dict with validation results
         """
         result = {
             'valid': False,
@@ -36,7 +126,8 @@ class CodeValidator:
             'warnings': [],
             'expected_output': expected_output,
             'solution_output': '',
-            'actual_output': ''
+            'actual_output': '',
+            'detected_mistakes': []
         }
         
         # Step 1: Check syntax
@@ -44,6 +135,8 @@ class CodeValidator:
         if not syntax_check['valid']:
             result['errors'] = syntax_check['errors']
             result['feedback'].append("Fix syntax errors before testing.")
+            # Also check for common mistakes in syntax
+            result['detected_mistakes'] = self.detect_common_mistakes(student_code)
             return result
         
         try:
@@ -51,18 +144,17 @@ class CodeValidator:
             solution_output = self._execute_code(solution_code)
             result['solution_output'] = solution_output
             
-            # Step 3: Sanity check - Verify solution matches expected output
+            # Step 3: Sanity check
             if solution_output.strip() != expected_output.strip():
                 result['warnings'].append(
-                    "⚠️ Warning: Solution output doesn't match expected output. "
-                    "There may be an issue with the test case data."
+                    "Warning: Solution output doesn't match expected output."
                 )
             
             # Step 4: Run student code
             student_output = self._execute_code(student_code)
             result['actual_output'] = student_output
             
-            # Step 5: Compare student output with BOTH expected and solution
+            # Step 5: Compare outputs
             expected_lines = [line.strip() for line in expected_output.strip().split('\n')]
             solution_lines = [line.strip() for line in solution_output.strip().split('\n')]
             actual_lines = [line.strip() for line in student_output.strip().split('\n')]
@@ -71,42 +163,26 @@ class CodeValidator:
             matches_solution = (solution_lines == actual_lines)
             
             # Step 6: Determine result
-            if matches_expected and matches_solution:
-                # Perfect! Matches both
+            if matches_expected or matches_solution:
                 result['valid'] = True
                 result['score'] = 100
                 result['feedback'].append("Perfect! Your code produces the correct output!")
-            elif matches_expected or matches_solution:
-                # Matches one but not the other (edge case)
-                result['valid'] = True
-                result['score'] = 100
-                result['feedback'].append("Correct! Your output matches the expected result.")
-                if not matches_solution:
-                    result['warnings'].append(
-                        "Note: Your output differs slightly from the model solution but is still correct."
-                    )
             else:
-                # Doesn't match either
                 result['score'] = 0
-                result['feedback'].append("Output doesn't match expected result. Review your code.")
+                result['feedback'].append("Output doesn't match expected result.")
+                # Detect common mistakes for failed submissions
+                result['detected_mistakes'] = self.detect_common_mistakes(student_code)
         
         except Exception as e:
             result['errors'].append(f"Runtime Error: {str(e)}")
             result['feedback'].append("Your code produced an error.")
+            result['detected_mistakes'] = self.detect_common_mistakes(student_code)
         
         return result
     
     def validate_with_test_cases(self, student_code, problem_details, solution_code):
         """
         Validate with multiple test cases using hybrid method
-        
-        Args:
-            student_code: Student's code
-            problem_details: Dict with test cases
-            solution_code: Solution code
-            
-        Returns:
-            dict with validation results
         """
         result = {
             'valid': False,
@@ -115,7 +191,8 @@ class CodeValidator:
             'tests_total': 0,
             'errors': [],
             'feedback': [],
-            'results': []
+            'results': [],
+            'detected_mistakes': []
         }
         
         # Check syntax first
@@ -123,6 +200,10 @@ class CodeValidator:
         if not syntax_check['valid']:
             result['errors'] = syntax_check['errors']
             result['feedback'].append("Fix syntax errors before testing.")
+            result['detected_mistakes'] = self.detect_common_mistakes(
+                student_code, 
+                problem_details.get('concept')
+            )
             return result
         
         # Get test cases
@@ -159,6 +240,11 @@ class CodeValidator:
                 result['feedback'].insert(0, f"Good job! Passed {result['tests_passed']}/{result['tests_total']} tests.")
         else:
             result['feedback'].insert(0, f"Keep trying! Only {result['tests_passed']}/{result['tests_total']} tests passed.")
+            # Detect common mistakes for failed submissions
+            result['detected_mistakes'] = self.detect_common_mistakes(
+                student_code, 
+                problem_details.get('concept')
+            )
         
         return result
     
@@ -171,7 +257,8 @@ class CodeValidator:
             'expected': '',
             'actual': '',
             'solution_output': '',
-            'error': None
+            'error': None,
+            'input_used': test_case.get('input', '')
         }
         
         try:
@@ -190,7 +277,7 @@ class CodeValidator:
             result['expected'] = expected_output
             result['actual'] = student_output.strip()
             
-            # Compare - student should match BOTH expected and solution
+            # Compare outputs
             expected_lines = [line.strip() for line in expected_output.split('\n')]
             solution_lines = [line.strip() for line in solution_output.strip().split('\n')]
             actual_lines = [line.strip() for line in student_output.strip().split('\n')]
@@ -198,7 +285,6 @@ class CodeValidator:
             matches_expected = (expected_lines == actual_lines)
             matches_solution = (solution_lines == actual_lines)
             
-            # Pass if matches either (with preference for expected)
             result['passed'] = matches_expected or matches_solution
             
         except Exception as e:
@@ -224,7 +310,18 @@ class CodeValidator:
                 'list': list,
                 'dict': dict,
                 'tuple': tuple,
-                'set': set
+                'set': set,
+                'abs': abs,
+                'max': max,
+                'min': min,
+                'sum': sum,
+                'sorted': sorted,
+                'reversed': reversed,
+                'zip': zip,
+                'map': map,
+                'filter': filter,
+                'round': round,
+                'format': format
             }
         }
         

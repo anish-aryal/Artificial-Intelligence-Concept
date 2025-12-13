@@ -163,6 +163,54 @@ class OntologyManager:
             logger.error(f"Error getting problem details: {e}")
             return None
     
+    def get_common_mistakes(self, problem=None):
+        """
+        Get common mistakes, optionally filtered by problem
+        Returns list of mistake dicts with: name, message
+        """
+        try:
+            if problem and hasattr(problem, 'hasMistake') and problem.hasMistake:
+                # Get mistakes linked to this problem
+                mistakes = []
+                for mistake in problem.hasMistake:
+                    mistakes.append({
+                        'name': mistake.name,
+                        'message': self._get_property(mistake, 'errorMessage')
+                    })
+                return mistakes
+            else:
+                # Get all mistakes if no problem specified
+                all_mistakes = list(self.onto.CommonMistake.instances())
+                return [
+                    {
+                        'name': m.name,
+                        'message': self._get_property(m, 'errorMessage')
+                    }
+                    for m in all_mistakes
+                ]
+        except Exception as e:
+            logger.error(f"Error getting common mistakes: {e}")
+            return []
+
+    def get_all_test_cases(self, problem):
+        """
+        Get all test cases for a problem with full details
+        Returns list of test case dicts
+        """
+        try:
+            test_cases = []
+            if hasattr(problem, 'hasTestCase') and problem.hasTestCase:
+                for tc in problem.hasTestCase:
+                    test_cases.append({
+                        'name': tc.name,
+                        'description': self._get_property(tc, 'testDescription') or f"Test {len(test_cases) + 1}",
+                        'input': self._get_property(tc, 'testInput') or '',
+                        'output': self._get_property(tc, 'testOutput') or ''
+                    })
+            return test_cases
+        except Exception as e:
+            logger.error(f"Error getting test cases: {e}")
+            return []
     def get_solution(self, problem):
         """
         Find solution for given problem
